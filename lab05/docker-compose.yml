@@ -1,0 +1,14 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+     - "5000:5000"
+    volumes:
+     - .:/code
+  lighttpd:
+    image: sebp/lighttpd
+    volumes:
+      - .:/var/www/localhost/htdocs
+    ports:
+      - "80:80"
